@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { Env } from '@/env'
+import { Env } from '@/infra/env'
 import { ExtractJwt, Strategy } from 'passport-jwt'
 
 import { Injectable } from '@nestjs/common'
