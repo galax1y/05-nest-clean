@@ -3,9 +3,23 @@ import { Entity } from '@/core/entities/entity'
 
 interface StudentProps {
   name: string
+  email: string
+  password: string
 }
 
 export class Student extends Entity<StudentProps> {
+  get email() {
+    return this.props.email
+  }
+
+  get name() {
+    return this.props.name
+  }
+
+  get password() {
+    return this.props.password
+  }
+
   static create(props: StudentProps, id?: UniqueEntityID) {
     const student = new Student({ ...props }, id)
 
