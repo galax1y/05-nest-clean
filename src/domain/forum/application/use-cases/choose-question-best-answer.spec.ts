@@ -5,7 +5,7 @@ import { InMemoryAnswersRepository } from 'test/repositories/in-memory-answers-r
 import { makeQuestion } from 'test/factories/make-question'
 import { makeAnswer } from 'test/factories/make-answer'
 
-import { NotAllowedError } from './errors/not-allowed'
+import { NotAllowedError } from '../../../../core/errors/errors/not-allowed'
 
 import { ChooseQuestionBestAnswerUseCase } from './choose-question-best-answer'
 

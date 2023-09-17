@@ -8,8 +8,8 @@ import { QuestionAttachmentList } from '../../enterprise/entities/question-attac
 import { QuestionAttachment } from '../../enterprise/entities/question-attachment'
 import { Question } from '../../enterprise/entities/question'
 
-import { ResourceNotFoundError } from './errors/resource-not-found-error'
-import { NotAllowedError } from './errors/not-allowed'
+import { ResourceNotFoundError } from '../../../../core/errors/errors/resource-not-found-error'
+import { NotAllowedError } from '../../../../core/errors/errors/not-allowed'
 
 interface EditQuestionUseCaseRequest {
   authorId: string

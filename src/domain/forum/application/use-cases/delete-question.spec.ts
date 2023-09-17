@@ -5,7 +5,7 @@ import { InMemoryQuestionsRepository } from 'test/repositories/in-memory-questio
 import { makeQuestionAttachment } from 'test/factories/make-question-attachment'
 import { makeQuestion } from 'test/factories/make-question'
 
-import { NotAllowedError } from './errors/not-allowed'
+import { NotAllowedError } from '../../../../core/errors/errors/not-allowed'
 
 import { DeleteQuestionUseCase } from './delete-question'
 
