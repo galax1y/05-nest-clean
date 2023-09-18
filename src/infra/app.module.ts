@@ -4,6 +4,7 @@ import { ConfigModule } from '@nestjs/config'
 
 import { AuthModule } from './auth/auth.module'
 import { HttpModule } from './http/http.module'
+import { CryptographyModule } from './cryptography/cryptography.module'
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { HttpModule } from './http/http.module'
     }),
     AuthModule,
     HttpModule,
+    CryptographyModule,
   ],
   controllers: [],
   providers: [],
