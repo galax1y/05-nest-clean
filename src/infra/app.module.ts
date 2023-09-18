@@ -1,10 +1,11 @@
-import { envSchema } from './env'
+import { envSchema } from './env/env'
 import { Module } from '@nestjs/common'
 import { ConfigModule } from '@nestjs/config'
 
 import { AuthModule } from './auth/auth.module'
 import { HttpModule } from './http/http.module'
-import { CryptographyModule } from './cryptography/cryptography.module'
+import { EnvService } from './env/env.service'
+import { EnvModule } from './env/env.module'
 
 @Module({
   imports: [
@@ -14,9 +15,9 @@ import { CryptographyModule } from './cryptography/cryptography.module'
     }),
     AuthModule,
     HttpModule,
-    CryptographyModule,
+    EnvModule,
   ],
   controllers: [],
-  providers: [],
+  providers: [EnvService],
 })
 export class AppModule {}
