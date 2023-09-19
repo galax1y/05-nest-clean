@@ -10,7 +10,7 @@ export interface AnswerProps {
   questionId: UniqueEntityID
   content: string
   createdAt: Date
-  updatedAt?: Date
+  updatedAt?: Date | null
   attachments: AnswerAttachmentList
 }
 
