@@ -10,11 +10,9 @@ import { INestApplication } from '@nestjs/common'
 
 import { AppModule } from '@/infra/app.module'
 import { DatabaseModule } from '@/infra/database/database.module'
-import { PrismaService } from '@/infra/database/prisma/prisma.service'
 
 describe('Get question by slug (e2e)', () => {
   let app: INestApplication
-  let prisma: PrismaService
   let studentFactory: StudentFactory
   let questionFactory: QuestionFactory
   let jwt: JwtService
@@ -27,7 +25,6 @@ describe('Get question by slug (e2e)', () => {
 
     app = moduleRef.createNestApplication()
 
-    prisma = moduleRef.get(PrismaService)
     studentFactory = moduleRef.get(StudentFactory)
     questionFactory = moduleRef.get(QuestionFactory)
     jwt = moduleRef.get(JwtService)
@@ -42,19 +39,19 @@ describe('Get question by slug (e2e)', () => {
 
     await questionFactory.makePrismaQuestion({
       authorId: user.id,
-      title: 'first question',
-      slug: Slug.create('first-question'),
+      title: 'question title',
+      slug: Slug.create('question-title'),
     })
 
     const response = await request(app.getHttpServer())
-      .get(`/questions/first-question`)
+      .get(`/questions/question-title`)
       .set('Authorization', `Bearer ${accessToken}`)
       .send()
 
     expect(response.statusCode).toBe(200)
 
     expect(response.body).toEqual({
-      question: expect.objectContaining({ title: 'first question' }),
+      question: expect.objectContaining({ title: 'question title' }),
     })
   })
 })
