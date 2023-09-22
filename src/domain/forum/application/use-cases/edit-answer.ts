@@ -1,3 +1,7 @@
+import { Injectable } from '@nestjs/common'
+
+import { ResourceNotFoundError } from '@/core/errors/errors/resource-not-found-error'
+import { NotAllowedError } from '@/core/errors/errors/not-allowed'
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { Either, left, right } from '@/core/either'
 
@@ -7,9 +11,6 @@ import { AnswersRepository } from '../repositories/answers-repository'
 import { AnswerAttachmentList } from '../../enterprise/entities/answer-attachment-list'
 import { AnswerAttachment } from '../../enterprise/entities/answer-attachment'
 import { Answer } from '../../enterprise/entities/answer'
-
-import { ResourceNotFoundError } from '../../../../core/errors/errors/resource-not-found-error'
-import { NotAllowedError } from '../../../../core/errors/errors/not-allowed'
 
 interface EditAnswerUseCaseRequest {
   answerId: string
@@ -25,6 +26,7 @@ type EditAnswerUseCaseResponse = Either<
   }
 >
 
+@Injectable()
 export class EditAnswerUseCase {
   // Dependency Injection - Repository Pattern
   constructor(
