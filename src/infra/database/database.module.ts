@@ -14,7 +14,7 @@ import { QuestionAttachmentsRepository } from '@/domain/forum/application/reposi
 import { PrismaStudentsRepository } from './prisma/repositories/prisma-students-repository'
 import { StudentsRepository } from '@/domain/forum/application/repositories/students-repository'
 
-import { PrismaQuestionCommentsRepository } from './prisma/repositories/prisma-questions-comments-repository'
+import { PrismaQuestionCommentsRepository } from './prisma/repositories/prisma-question-comments-repository'
 import { QuestionCommentsRepository } from '@/domain/forum/application/repositories/question-comments-repository'
 
 import { PrismaAnswerCommentsRepository } from './prisma/repositories/prisma-answer-comments-repository'

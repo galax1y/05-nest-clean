@@ -1,5 +1,6 @@
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { Either, left, right } from '@/core/either'
+import { Injectable } from '@nestjs/common'
 
 import { QuestionAttachmentsRepository } from '../repositories/question-attachments-repository'
 import { QuestionsRepository } from '../repositories/questions-repository'
@@ -26,6 +27,7 @@ type EditQuestionUseCaseResponse = Either<
   }
 >
 
+@Injectable()
 export class EditQuestionUseCase {
   // Dependency Injection - Repository Pattern
   constructor(
