@@ -4,6 +4,7 @@ import { Question } from '../../enterprise/entities/question'
 import { Either, left, right } from '@/core/either'
 import { NotAllowedError } from '../../../../core/errors/errors/not-allowed'
 import { ResourceNotFoundError } from '../../../../core/errors/errors/resource-not-found-error'
+import { Injectable } from '@nestjs/common'
 
 interface ChooseQuestionBestAnswerUseCaseRequest {
   authorId: string
@@ -17,6 +18,7 @@ type ChooseQuestionBestAnswerUseCaseResponse = Either<
   }
 >
 
+@Injectable()
 export class ChooseQuestionBestAnswerUseCase {
   // Dependency Injection - Repository Pattern
   constructor(
