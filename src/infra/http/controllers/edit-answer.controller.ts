@@ -15,11 +15,10 @@ import { ZodValidationPipe } from '@/infra/http/pipes/zod-validation-pipe'
 import { EditAnswerUseCase } from '@/domain/forum/application/use-cases/edit-answer'
 
 const editAnswerBodySchema = z.object({
-  title: z.string(),
   content: z.string(),
 })
 
-type editAnswerBodySchema = z.infer<typeof editAnswerBodySchema>
+type EditAnswerBodySchema = z.infer<typeof editAnswerBodySchema>
 
 const bodyValidationPipe = new ZodValidationPipe(editAnswerBodySchema)
 
@@ -30,7 +29,7 @@ export class EditAnswerController {
   @Put()
   @HttpCode(204)
   async handle(
-    @Body(bodyValidationPipe) body: editAnswerBodySchema,
+    @Body(bodyValidationPipe) body: EditAnswerBodySchema,
     @CurrentUser() user: UserPayload,
     @Param('id') answerId: string,
   ) {

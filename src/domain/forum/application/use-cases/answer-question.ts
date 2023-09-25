@@ -1,6 +1,6 @@
-import { AnswersRepository } from '../repositories/answers-repository'
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { Answer } from '../../enterprise/entities/answer'
+import { AnswersRepository } from '../repositories/answers-repository'
 import { Either, right } from '@/core/either'
 import { AnswerAttachment } from '../../enterprise/entities/answer-attachment'
 import { AnswerAttachmentList } from '../../enterprise/entities/answer-attachment-list'
@@ -13,11 +13,15 @@ interface AnswerQuestionUseCaseRequest {
   content: string
 }
 
-type AnswerQuestionUseCaseResponse = Either<null, { answer: Answer }>
+type AnswerQuestionUseCaseResponse = Either<
+  null,
+  {
+    answer: Answer
+  }
+>
 
 @Injectable()
 export class AnswerQuestionUseCase {
-  // Dependency Injection - Repository Pattern
   constructor(private answersRepository: AnswersRepository) {}
 
   async execute({
@@ -27,9 +31,9 @@ export class AnswerQuestionUseCase {
     attachmentsIds,
   }: AnswerQuestionUseCaseRequest): Promise<AnswerQuestionUseCaseResponse> {
     const answer = Answer.create({
+      content,
       authorId: new UniqueEntityID(authorId),
       questionId: new UniqueEntityID(questionId),
-      content,
     })
 
     const answerAttachments = attachmentsIds.map((attachmentId) => {
@@ -43,6 +47,8 @@ export class AnswerQuestionUseCase {
 
     await this.answersRepository.create(answer)
 
-    return right({ answer })
+    return right({
+      answer,
+    })
   }
 }
