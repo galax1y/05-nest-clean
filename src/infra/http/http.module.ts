@@ -12,6 +12,7 @@ import { CreateQuestionController } from './controllers/create-question.controll
 import { AnswerQuestionController } from './controllers/answer-question.controller'
 import { DeleteQuestionController } from './controllers/delete-question.controller'
 import { CommentOnAnswerController } from './controllers/comment-on-answer.controller'
+import { UploadAttachmentController } from './controllers/upload-attachment.controller'
 import { CommentOnQuestionController } from './controllers/comment-on-question.controller'
 import { GetQuestionBySlugController } from './controllers/get-question-by-slug.controller'
 import { FetchAnswerCommentsController } from './controllers/fetch-answer-comments.controller'
@@ -62,6 +63,7 @@ import { ChooseQuestionBestAnswerUseCase } from '@/domain/forum/application/use-
     DeleteAnswerCommentController,
     FetchQuestionCommentsController,
     FetchAnswerCommentsController,
+    UploadAttachmentController,
   ],
   providers: [
     CreateQuestionUseCase,
