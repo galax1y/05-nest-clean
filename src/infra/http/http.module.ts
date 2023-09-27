@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common'
 
+import { StorageModule } from '../storage/storage.module'
 import { DatabaseModule } from '../database/database.module'
 import { CryptographyModule } from '../cryptography/cryptography.module'
 
@@ -41,9 +42,10 @@ import { FetchQuestionAnswersUseCase } from '@/domain/forum/application/use-case
 import { FetchQuestionCommentsUseCase } from '@/domain/forum/application/use-cases/fetch-question-comments'
 import { DeleteQuestionCommentUseCase } from '@/domain/forum/application/use-cases/delete-question-comment'
 import { ChooseQuestionBestAnswerUseCase } from '@/domain/forum/application/use-cases/choose-question-best-answer'
+import { UploadAndCreateAttachmentUseCase } from '@/domain/forum/application/use-cases/upload-and-create-attachment'
 
 @Module({
-  imports: [DatabaseModule, CryptographyModule],
+  imports: [DatabaseModule, CryptographyModule, StorageModule],
   controllers: [
     CreateAccountController,
     AuthenticateController,
@@ -84,6 +86,7 @@ import { ChooseQuestionBestAnswerUseCase } from '@/domain/forum/application/use-
     DeleteAnswerCommentUseCase,
     FetchQuestionCommentsUseCase,
     FetchAnswerCommentsUseCase,
+    UploadAndCreateAttachmentUseCase,
   ],
 })
 export class HttpModule {}
