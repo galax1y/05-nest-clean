@@ -11,7 +11,7 @@ export interface QuestionDetailsProps {
   slug: Slug
   content: string
   attachments: Attachment[]
-  bestAnswerid?: UniqueEntityID | null
+  bestAnswerId?: UniqueEntityID | null
   createdAt: Date
   updatedAt?: Date | null
 }
@@ -46,7 +46,7 @@ export class QuestionDetails extends ValueObject<QuestionDetailsProps> {
   }
 
   get bestAnswerId() {
-    return this.props.bestAnswerid
+    return this.props.bestAnswerId
   }
 
   get createdAt() {

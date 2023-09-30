@@ -1,8 +1,7 @@
+import { InMemoryStudentsRepository } from 'test/repositories/in-memory-students-repository'
 import { FakeHasher } from 'test/cryptography/fake-hasher'
 
 import { RegisterStudentUseCase } from './register-student'
-
-import { InMemoryStudentsRepository } from 'test/repositories/in-memory-students-repository'
 
 let inMemoryStudentsRepository: InMemoryStudentsRepository
 let fakeHasher: FakeHasher

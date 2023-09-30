@@ -1,7 +1,9 @@
-import { InMemoryAttachmentsRepository } from 'test/repositories/in-memory-attachments-repository'
-import { UploadAndCreateAttachmentUseCase } from './upload-and-create-attachment'
-import { FakeUploader } from 'test/storage/fake-uploader'
 import { InvalidAttachmentType } from './errors/invalid-attachment-type'
+
+import { InMemoryAttachmentsRepository } from 'test/repositories/in-memory-attachments-repository'
+import { FakeUploader } from 'test/storage/fake-uploader'
+
+import { UploadAndCreateAttachmentUseCase } from './upload-and-create-attachment'
 
 let inMemoryAttachmentsRepository: InMemoryAttachmentsRepository
 let uploader: FakeUploader

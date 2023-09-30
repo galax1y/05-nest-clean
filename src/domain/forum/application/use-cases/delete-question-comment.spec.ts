@@ -1,18 +1,22 @@
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
+import { NotAllowedError } from '@/core/errors/errors/not-allowed'
 
 import { InMemoryQuestionCommentsRepository } from 'test/repositories/in-memory-question-comments-repository'
-import { DeleteQuestionCommentUseCase } from './delete-question-comment'
+import { InMemoryStudentsRepository } from 'test/repositories/in-memory-students-repository'
 import { makeQuestionComment } from 'test/factories/make-question-comment'
 
-import { NotAllowedError } from '../../../../core/errors/errors/not-allowed'
+import { DeleteQuestionCommentUseCase } from './delete-question-comment'
 
 let inMemoryQuestionCommentsRepository: InMemoryQuestionCommentsRepository
+let inMemoryStudentsRepository: InMemoryStudentsRepository
 let sut: DeleteQuestionCommentUseCase // sut: System Under Test
 
 describe('Delete question comment', () => {
   beforeEach(() => {
-    inMemoryQuestionCommentsRepository =
-      new InMemoryQuestionCommentsRepository()
+    inMemoryStudentsRepository = new InMemoryStudentsRepository()
+    inMemoryQuestionCommentsRepository = new InMemoryQuestionCommentsRepository(
+      inMemoryStudentsRepository,
+    )
 
     sut = new DeleteQuestionCommentUseCase(inMemoryQuestionCommentsRepository)
   })
