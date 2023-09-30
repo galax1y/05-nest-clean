@@ -15,7 +15,7 @@ export function makeAnswerComment(
   override: Partial<AnswerCommentProps> = {},
   id?: UniqueEntityID,
 ) {
-  const answerComment = AnswerComment.create(
+  const answer = AnswerComment.create(
     {
       // Propriedades padrões
       authorId: new UniqueEntityID(),
@@ -27,7 +27,7 @@ export function makeAnswerComment(
     id,
   )
 
-  return answerComment
+  return answer
 }
 
 @Injectable()

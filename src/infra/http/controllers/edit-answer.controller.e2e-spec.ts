@@ -1,3 +1,6 @@
+import { JwtService } from '@nestjs/jwt'
+import { INestApplication } from '@nestjs/common'
+
 import request from 'supertest'
 import { Test } from '@nestjs/testing'
 import { AnswerFactory } from 'test/factories/make-answer'
@@ -5,9 +8,6 @@ import { StudentFactory } from 'test/factories/make-student'
 import { QuestionFactory } from 'test/factories/make-question'
 import { AttachmentFactory } from 'test/factories/make-attachment'
 import { AnswerAttachmentFactory } from 'test/factories/make-answer-attachment'
-
-import { JwtService } from '@nestjs/jwt'
-import { INestApplication } from '@nestjs/common'
 
 import { AppModule } from '@/infra/app.module'
 import { DatabaseModule } from '@/infra/database/database.module'

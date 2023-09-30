@@ -1,3 +1,4 @@
+import { z } from 'zod'
 import {
   BadRequestException,
   Body,
@@ -5,10 +6,11 @@ import {
   Param,
   Post,
 } from '@nestjs/common'
-import { CurrentUser } from '@/infra/auth/current-user-decorator'
+
 import { UserPayload } from '@/infra/auth/jwt.strategy'
+import { CurrentUser } from '@/infra/auth/current-user-decorator'
 import { ZodValidationPipe } from '@/infra/http/pipes/zod-validation-pipe'
-import { z } from 'zod'
+
 import { AnswerQuestionUseCase } from '@/domain/forum/application/use-cases/answer-question'
 
 const answerQuestionBodySchema = z.object({

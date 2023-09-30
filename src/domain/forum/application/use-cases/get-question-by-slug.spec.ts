@@ -12,6 +12,8 @@ let sut: GetQuestionBySlugUseCase // sut: System Under Test
 
 describe('Get question by slug', () => {
   beforeEach(() => {
+    inMemoryQuestionAttachmentsRepository =
+      new InMemoryQuestionAttachmentsRepository()
     inMemoryQuestionsRepository = new InMemoryQuestionsRepository(
       inMemoryQuestionAttachmentsRepository,
     )
