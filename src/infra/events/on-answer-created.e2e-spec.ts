@@ -50,6 +50,7 @@ describe('On answer created (E2E)', () => {
       .set('Authorization', `Bearer ${accessToken}`)
       .send({
         content: 'New answer',
+        attachments: [],
       })
 
     await waitFor(async () => {
