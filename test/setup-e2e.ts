@@ -1,6 +1,7 @@
 import { config } from 'dotenv'
 import { randomUUID } from 'node:crypto'
 import { execSync } from 'node:child_process'
+import { DomainEvents } from '@/core/events/domain-events'
 
 import { beforeAll, afterAll } from 'vitest'
 
@@ -30,6 +31,8 @@ beforeAll(async () => {
   const databaseURL = generateUniqueDatabaseURL(schemaUUID)
 
   process.env.DATABASE_URL = databaseURL
+
+  DomainEvents.shouldRun = false
 
   execSync('npx prisma migrate deploy')
 })
