@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common'
+import { CacheModule } from '../cache/cache.module'
 
 import { PrismaService } from './prisma/prisma.service'
 
@@ -30,6 +31,7 @@ import { PrismaNotificationsRepository } from './prisma/repositories/prisma-noti
 import { NotificationsRepository } from '@/domain/notification/application/repositories/notifications-repository'
 
 @Module({
+  imports: [CacheModule],
   providers: [
     PrismaService,
     {
