@@ -22,7 +22,7 @@ export class PrismaQuestionsRepository implements QuestionsRepository {
   ) {}
 
   async findDetailsBySlug(slug: string): Promise<QuestionDetails | null> {
-    const cacheHit = await this.cacheRepository.get(slug)
+    const cacheHit = await this.cacheRepository.get(`question:${slug}:details`)
 
     if (cacheHit) {
       const cachedData = JSON.parse(cacheHit)
