@@ -40,7 +40,7 @@ const schemaUUID = randomUUID()
 beforeAll(async () => {
   const databaseURL = generateUniqueDatabaseURL(schemaUUID)
 
-  env.DATABASE_URL = databaseURL
+  process.env.DATABASE_URL = databaseURL
 
   DomainEvents.shouldRun = false
 
